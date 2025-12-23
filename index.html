@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Library of Pokémons</title>
+    <link rel="icon" type="image/icon" href="./assets/img/pokemon.png" />
+    <link rel="stylesheet" href="./styles/fonts.css" />
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="./styles/standard.css" />
+    <link rel="stylesheet" href="./styles/assets.css" />
+    <link rel="stylesheet" href="./styles/cards.css" />
+    <link rel="stylesheet" href="./styles/types.css" />
+    <script src="./scripts/helpers.js"></script>
+    <script defer src="./script.js"></script>
+    <script src="./scripts/templates.js"></script>
+  </head>
+  <body id="body" onload="getPokemonData()">
+    <div class="site">
+      <header id="header">
+        <div class="wrapper">
+          <div class="inner">
+            <div class="containerHeaderLeft"></div>
+            <a href="./index.html"><img class="headerLogo" src="./assets/img/logo.png" alt="Logo" /></a>
+            <section class="searchBarContainer">
+              <button onclick="toggleSearchMobileBar()">
+                <img class="searchIcon" src="./assets/icons/search.png" alt="search icon" />
+              </button>
+              <div class="searchBar" id="searchBar">
+                <div class="searchBarInput">
+                  <input type="text" name="search" id="searchInput" class="searchInput" placeholder="search by name" />
+                  <button onclick="deleteSearchInput()" id="deleteSearchInput" class="deleteSearchInputBtn">X</button>
+                </div>
+                <div id="searchWarning" class="messageWarning">Insert at least 3 letters!</div>
+              </div>
+            </section>
+          </div>
+          <a id="goToTop" class="goToTop" aria-lable="nach oben" onclick="scrollUp()"><img src="./assets/icons/go-to-top.png" alt="nach oben" /></a>
+        </div>
+      </header>
+      <main>
+        <div class="wrapper">
+          <div class="inner">
+            <dialog id="pInfoDialog"></dialog>
+            <section class="loadingScreen" id="loadingScreen">
+              <div class="pokeball"></div>
+              <p>loading...</p>
+            </section>
+            <article id="cardOverview" class="cardOverview"></article>
+          </div>
+          <div class="inner pt-0 d-flex flex-all-center">
+            <button id="loadMoreBtn" onclick="loadMorePokemons()" class="btn loadBtn">load more</button>
+            <section class="noPokemonFound" id="emptySearchResultMessage">
+              <h3>No match found!</h3>
+              <p>
+                Please type another Pokémon name or<br />
+                <button onclick="loadMorePokemonEmptyResult()" class="loadMorePokemonEmptyResult">load more Pokémon and try again.</button>
+              </p>
+            </section>
+          </div>
+        </div>
+      </main>
+    </div>
+    <footer>
+      <div class="wrapper">
+        <div class="inner">
+          <p>Library of Pokémons</p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

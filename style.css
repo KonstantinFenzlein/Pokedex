@@ -1,0 +1,352 @@
+.goToTop {
+  opacity: 0;
+  position: fixed;
+  max-width: 50px;
+  max-height: 50px;
+  right: 40px;
+  bottom: 40px;
+  z-index: 99;
+  transform: translateY(20px);
+  transition: all 0.2s ease-in;
+}
+
+.goToTop:hover {
+  filter: brightness(250%);
+  cursor: pointer;
+}
+
+.goToTop img {
+  width: 100%;
+}
+
+dialog {
+  opacity: 0;
+  background-color: #ffffff00;
+  border: none;
+  border-radius: 10px;
+  margin: auto;
+  padding: 0;
+  transform: translateY(100px);
+  transition: opacity 0.3s ease-in, transform 0.3s ease-in;
+  position: fixed;
+}
+
+dialog.opened {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+dialog::backdrop {
+  opacity: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  transition: all var(--transition);
+}
+
+dialog.opened::backdrop {
+  opacity: 1;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.tooltiptext {
+  visibility: hidden;
+  opacity: 0;
+  width: 80px;
+  background-color: var(--main-color);
+  color: #ffffff;
+  text-align: center;
+  padding: 4px;
+  border: 1px solid var(--color-darkgrey);
+  box-shadow: 1px 1px 1px var(--color-darkgrey);
+  border-radius: 6px;
+  position: absolute;
+  top: 110%;
+  left: 50%;
+  margin-left: -40px;
+  z-index: 1;
+  transition: all var(--transition);
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+
+.progressBar {
+  border-radius: 10px;
+  border: 1px solid var(--color-darkgrey);
+}
+
+.progressBarInner {
+  background-color: var(--main-color);
+  border-radius: 10px;
+  color: white;
+  text-align: center;
+  padding: 1px 0;
+}
+
+.headerIcon {
+  width: 24px;
+  filter: invert();
+  transition: all var(--transition);
+}
+
+.headerIcon:hover {
+  filter: brightness(0) saturate(100%) invert(7%) sepia(15%) saturate(7367%) hue-rotate(215deg) brightness(100%) contrast(100%);
+}
+
+.searchInput {
+  width: 100%;
+  height: 100%;
+  border: none;
+  padding: 0 4px;
+}
+
+.deleteSearchInputBtn {
+  display: none;
+  opacity: 0;
+  transition: all var(--transition);
+}
+
+.searchInput:focus {
+  outline: none;
+}
+
+.searchInput:focus + .deleteSearchInputBtn {
+  display: block;
+  opacity: 1;
+  transition: all var(--transition);
+}
+
+.searchBarContainer {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 8px;
+  max-width: 224px;
+  width: 20%;
+}
+
+.searchBarInput {
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  position: relative;
+}
+
+.searchBar {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  width: 100%;
+  height: 32px;
+  background-color: white;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 1px 1px 3px;
+  padding: 0 0 0 8px;
+  z-index: 2;
+}
+
+.searchOk {
+  border-radius: 8px;
+  background-color: var(--main-color);
+  margin: 4px 4px;
+  padding: 4px 8px;
+  height: 80%;
+  color: white;
+  font-weight: 600;
+  transition: all var(--transition);
+}
+
+.searchOk:hover {
+  background-color: var(--site-color);
+  color: white;
+}
+
+.selectorButtonPlaceholder {
+  width: 50px;
+}
+
+.loadingScreen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #ffffffb7;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 5;
+  transition: all var(--transition);
+}
+
+.loadBtn {
+  display: none;
+}
+
+.pokeball {
+  width: 100px;
+  height: 100px;
+  border: 4px solid black;
+  border-radius: 50%;
+  background: linear-gradient(to bottom, red 50%, white 50%);
+  position: relative;
+  animation: shake 0.5s infinite;
+  margin-bottom: 32px;
+}
+
+.pokeball::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 20px;
+  height: 20px;
+  border: 3px solid black;
+  border-radius: 50%;
+  background: white;
+}
+
+@keyframes shake {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(10deg);
+  }
+  50% {
+    transform: rotate(-10deg);
+  }
+  75% {
+    transform: rotate(10deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+.loadingScreen p {
+  font-weight: bold;
+  font-size: 36px;
+  color: var(--main-color);
+}
+
+.searchIcon {
+  display: none;
+}
+
+.messageWarning {
+  display: none;
+  opacity: 0;
+  background-color: white;
+  margin-top: 4px;
+  border: 2px solid var(--main-color);
+  box-shadow: 1px 1px 6px white;
+  padding: 4px 8px;
+  text-align: center;
+  position: absolute;
+  top: 32px;
+  left: 0;
+  font-weight: 600;
+  color: var(--main-color);
+  transition: all var(--transition);
+}
+
+.noScroll {
+  overflow: hidden;
+}
+
+.noPokemonFound {
+  display: none;
+  opacity: 0;
+  text-align: center;
+  padding: 16px;
+  border: 2px solid white;
+  border-radius: 10px;
+  background-color: var(--main-color);
+  transition: opacity var(--transition);
+}
+
+.noPokemonFound p {
+  color: white;
+  font-weight: 600;
+}
+
+.noPokemonFound h3 {
+  color: white;
+  margin-bottom: 16px;
+}
+
+.loadMorePokemonEmptyResult {
+  font-size: var(--font-size);
+  text-decoration: underline;
+  cursor: pointer;
+  color: white;
+  font-weight: 600;
+}
+
+@media (max-width: 960px) {
+  .buttonHeaderLeft {
+    width: 20%;
+  }
+
+  .searchBar {
+    display: none;
+    opacity: 0;
+    transform: translateY(-40px);
+    position: absolute;
+    bottom: -72px;
+    right: 0px;
+    width: 200px;
+    opacity: 0;
+    transition: all var(--transition);
+  }
+
+  .searchBarContainer {
+    width: 20%;
+    position: relative;
+  }
+
+  .searchIcon {
+    display: block;
+    width: 24px;
+    filter: invert();
+  }
+}
+
+@media (max-width: 500px) {
+  body {
+    font-size: var(--font-size);
+  }
+
+  .basicInfoRight img {
+    width: 18px;
+    height: 18px;
+  }
+
+  dialog {
+    margin: auto;
+    max-height: 100dvh;
+    max-width: 100%;
+  }
+
+  .progressBar {
+    max-height: 22px;
+  }
+
+  .goToTop {
+    max-width: 40px;
+    max-height: 40px;
+    bottom: 20px;
+    right: 20px;
+  }
+}

@@ -1,0 +1,144 @@
+:root {
+  --font-family: "Figtree", Verdana, Tahoma, sans-serif;
+  --site-color: #020202;
+  --font-size: 16px;
+  --header-height: 60px;
+  --main-color: #5252f6;
+  --main-color-hover: #5699d4;
+  --header-bg-color: #5252f6;
+  --footer-bg-color: #5252f6;
+  --footer-height: 40px;
+  --color-grey: #c4c4c4;
+  --color-darkgrey: #575656;
+  --color-light: #e5e2e2;
+  --transition: 0.3s ease-in;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  scroll-behavior: smooth;
+  color: #212121;
+  font-size: var(--font-size);
+  font-family: var(--font-family);
+  position: relative;
+}
+
+html {
+  font-size: var(--font-size);
+}
+
+a {
+  text-decoration: none;
+}
+
+h1 {
+  visibility: hidden;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}
+
+hr {
+  width: 100%;
+  color: #212121;
+}
+
+button {
+  border: none;
+  background-color: unset;
+  width: unset;
+  height: unset;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+button:disabled {
+  background-color: var(--color-darkgrey);
+}
+
+button:disabled:hover {
+  scale: unset;
+  background-color: var(--color-darkgrey);
+  color: white;
+  cursor: auto;
+}
+
+.wrapper {
+  max-width: 1440px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+header {
+  background-color: var(--header-bg-color);
+}
+
+header .wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: var(--header-height);
+}
+
+header .inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1% 4%;
+  width: 100%;
+  max-width: 1130px;
+}
+
+.headerLogo {
+  max-width: 240px;
+}
+
+.inner {
+  padding: 4% 4%;
+}
+
+.site {
+  min-height: calc(100vh - var(--footer-height));
+  background-color: var(--site-color);
+}
+
+footer {
+  height: var(--footer-height);
+  display: flex;
+  justify-content: center;
+  background-color: var(--footer-bg-color);
+}
+
+footer .wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+footer .inner {
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+footer .inner p {
+  font-weight: 500;
+  color: #f7f6f1;
+}
+
+.dNone {
+  display: none;
+  opacity: 0;
+  transition: opacity var(--transition);
+}
+
+.show {
+  display: flex;
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity var(--transition);
+}
