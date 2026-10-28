@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -11,9 +11,9 @@
     <link rel="stylesheet" href="./styles/assets.css" />
     <link rel="stylesheet" href="./styles/cards.css" />
     <link rel="stylesheet" href="./styles/types.css" />
-    <script src="./scripts/helpers.js"></script>
+    <script defer src="./scripts/helpers.js"></script>
+    <script defer src="./scripts/templates.js"></script>
     <script defer src="./script.js"></script>
-    <script src="./scripts/templates.js"></script>
   </head>
   <body id="body" onload="getPokemonData()">
     <div class="site">
@@ -23,19 +23,19 @@
             <div class="containerHeaderLeft"></div>
             <a href="./index.html"><img class="headerLogo" src="./assets/img/logo.png" alt="Logo" /></a>
             <section class="searchBarContainer">
-              <button onclick="toggleSearchMobileBar()">
+              <button onclick="toggleSearchMobileBar()" aria-label="toggle search">
                 <img class="searchIcon" src="./assets/icons/search.png" alt="search icon" />
               </button>
               <div class="searchBar" id="searchBar">
                 <div class="searchBarInput">
                   <input type="text" name="search" id="searchInput" class="searchInput" placeholder="search by name" />
-                  <button onclick="deleteSearchInput()" id="deleteSearchInput" class="deleteSearchInputBtn">X</button>
+                  <button onclick="deleteSearchInput()" id="deleteSearchInput" class="deleteSearchInputBtn" aria-label="clear search">X</button>
                 </div>
                 <div id="searchWarning" class="messageWarning">Insert at least 3 letters!</div>
               </div>
             </section>
           </div>
-          <a id="goToTop" class="goToTop" aria-lable="nach oben" onclick="scrollUp()"><img src="./assets/icons/go-to-top.png" alt="nach oben" /></a>
+          <button id="goToTop" class="goToTop" aria-label="back to top" onclick="scrollUp()"><img src="./assets/icons/go-to-top.png" alt="" /></button>
         </div>
       </header>
       <main>
@@ -55,6 +55,13 @@
               <p>
                 Please type another Pokémon name or<br />
                 <button onclick="loadMorePokemonEmptyResult()" class="loadMorePokemonEmptyResult">load more Pokémon and try again.</button>
+              </p>
+            </section>
+            <section class="noPokemonFound" id="loadErrorMessage">
+              <h3>Loading failed!</h3>
+              <p>
+                Please check your internet connection and<br />
+                <button onclick="location.reload()" class="loadMorePokemonEmptyResult">try again.</button>
               </p>
             </section>
           </div>
