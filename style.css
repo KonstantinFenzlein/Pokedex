@@ -3,6 +3,7 @@
   position: fixed;
   max-width: 50px;
   max-height: 50px;
+  padding: 0;
   right: 40px;
   bottom: 40px;
   z-index: 99;
